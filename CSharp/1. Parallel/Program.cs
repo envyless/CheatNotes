@@ -8,14 +8,52 @@ using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Jobs;
 using System.Security.Cryptography;
 using BenchmarkDotNet.Running;
+using System.Diagnostics;
 
 namespace _1._Parallel
 {
+    
     public class Program
     {
+        public static TimeSpan Time(Action action)
+        {
+            Stopwatch stopwatch = Stopwatch.StartNew();
+            action();
+            stopwatch.Stop();
+            return stopwatch.Elapsed;
+        }
+        static int sumOfListA = 0;
+        static int N = 10000000;
+        public static void FuncA(){      
+            // for(int i = 0; i < N; ++i)
+            // {
+            //     Task.Run(()=>{
+            //         sumOfListA += i;
+            //      });  
+            // }
+            sumOfListA = 0;
+            int num = N / 8;            
+            Parallel.For(0, 8, _i=>{
+                int start = _i * num;
+                int max = start + num;
+                for(int i = start; i < max; ++i)
+                    sumOfListA++;
+            }); 
+        }
+
+        public static void FuncB()
+        {
+            sumOfListA = 0;
+            for(int i = 0; i < N; ++i)
+            {
+                sumOfListA++;                
+            }
+        }
+        
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var time = Time(FuncB);            
+            Console.WriteLine("result : "+time.TotalMilliseconds); 
             //var summary = BenchmarkRunner.Run<Test>();
         }
 
