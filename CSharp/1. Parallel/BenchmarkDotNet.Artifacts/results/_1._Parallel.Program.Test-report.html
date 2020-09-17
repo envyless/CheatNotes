@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>_1._Parallel.Program.Test-20200917-210649</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet=v0.12.1, OS=macOS Catalina 10.15.6 (19G2021) [Darwin 19.6.0]
+Intel Core i7-7920HQ CPU 3.10GHz (Kaby Lake), 1 CPU, 8 logical and 4 physical cores
+.NET Core SDK=3.1.402
+  [Host]        : .NET Core 3.1.8 (CoreCLR 4.700.20.41105, CoreFX 4.700.20.41903), X64 RyuJIT
+  .NET Core 3.1 : .NET Core 3.1.8 (CoreCLR 4.700.20.41105, CoreFX 4.700.20.41903), X64 RyuJIT
+</code></pre>
+<pre><code>Job=.NET Core 3.1  Runtime=.NET Core 3.1  
+</code></pre>
+
+<table>
+<thead><tr><th>Method</th><th>N</th><th>  Mean</th><th>Error</th><th>StdDev</th>
+</tr>
+</thead><tbody><tr><td>FuncA</td><td>1000</td><td>12.545 &mu;s</td><td>0.3322 &mu;s</td><td>0.9093 &mu;s</td>
+</tr><tr><td>FuncB</td><td>1000</td><td>1.606 &mu;s</td><td>0.0268 &mu;s</td><td>0.0251 &mu;s</td>
+</tr><tr><td>FuncA</td><td>1000000</td><td>5,183.079 &mu;s</td><td>82.0554 &mu;s</td><td>112.3183 &mu;s</td>
+</tr><tr><td>FuncB</td><td>1000000</td><td>1,512.240 &mu;s</td><td>21.9004 &mu;s</td><td>19.4141 &mu;s</td>
+</tr></tbody></table>
+</body>
+</html>
