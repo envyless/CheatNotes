@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>_1._Parallel.Program.Test-20200917-210649</title>
+<title>_1._Parallel.Program.Test-20200918-111531</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -13,8 +13,8 @@
 </head>
 <body>
 <pre><code>
-BenchmarkDotNet=v0.12.1, OS=macOS Catalina 10.15.6 (19G2021) [Darwin 19.6.0]
-Intel Core i7-7920HQ CPU 3.10GHz (Kaby Lake), 1 CPU, 8 logical and 4 physical cores
+BenchmarkDotNet=v0.12.1, OS=ubuntu 20.04
+Intel Core i7-9700K CPU 3.60GHz (Coffee Lake), 1 CPU, 8 logical and 8 physical cores
 .NET Core SDK=3.1.402
   [Host]        : .NET Core 3.1.8 (CoreCLR 4.700.20.41105, CoreFX 4.700.20.41903), X64 RyuJIT
   .NET Core 3.1 : .NET Core 3.1.8 (CoreCLR 4.700.20.41105, CoreFX 4.700.20.41903), X64 RyuJIT
@@ -23,12 +23,14 @@ Intel Core i7-7920HQ CPU 3.10GHz (Kaby Lake), 1 CPU, 8 logical and 4 physical co
 </code></pre>
 
 <table>
-<thead><tr><th>Method</th><th>N</th><th>  Mean</th><th>Error</th><th>StdDev</th>
+<thead><tr><th>Method</th><th> N</th><th>   Mean</th><th>  Error</th><th> StdDev</th><th> Median</th>
 </tr>
-</thead><tbody><tr><td>FuncA</td><td>1000</td><td>12.545 &mu;s</td><td>0.3322 &mu;s</td><td>0.9093 &mu;s</td>
-</tr><tr><td>FuncB</td><td>1000</td><td>1.606 &mu;s</td><td>0.0268 &mu;s</td><td>0.0251 &mu;s</td>
-</tr><tr><td>FuncA</td><td>1000000</td><td>5,183.079 &mu;s</td><td>82.0554 &mu;s</td><td>112.3183 &mu;s</td>
-</tr><tr><td>FuncB</td><td>1000000</td><td>1,512.240 &mu;s</td><td>21.9004 &mu;s</td><td>19.4141 &mu;s</td>
+</thead><tbody><tr><td>FuncA</td><td>1000</td><td>8.115 &mu;s</td><td>0.2292 &mu;s</td><td>0.6685 &mu;s</td><td>8.238 &mu;s</td>
+</tr><tr><td>FuncC</td><td>1000</td><td>34.618 &mu;s</td><td>0.6902 &mu;s</td><td>1.3462 &mu;s</td><td>34.636 &mu;s</td>
+</tr><tr><td>FuncB</td><td>1000</td><td>1.221 &mu;s</td><td>0.0083 &mu;s</td><td>0.0074 &mu;s</td><td>1.219 &mu;s</td>
+</tr><tr><td>FuncA</td><td>10000000</td><td>24,401.008 &mu;s</td><td>1,764.6671 &mu;s</td><td>5,203.1606 &mu;s</td><td>25,886.722 &mu;s</td>
+</tr><tr><td>FuncC</td><td>10000000</td><td>5,949.350 &mu;s</td><td>54.8800 &mu;s</td><td>51.3348 &mu;s</td><td>5,938.327 &mu;s</td>
+</tr><tr><td>FuncB</td><td>10000000</td><td>12,455.040 &mu;s</td><td>122.9161 &mu;s</td><td>95.9648 &mu;s</td><td>12,434.055 &mu;s</td>
 </tr></tbody></table>
 </body>
 </html>
